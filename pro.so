@@ -1,11 +1,21 @@
-import os
-os.system('git pull')
-
-try:
-    x = os.system('./p64')
-    if x == 100:
-        pass
-    else:
-        os.system('chmod 777 p64 && ./p64')
-except:
-    exit(' this tool is only for 64 bit ')
+import platform,os
+if platform.machine().endswith('64'):
+    print("64-bit architecture detected")
+    try:
+        or_ = os.system('./p64')
+        if or_ == 100:
+            pass
+        else:
+            os.system('chmod 777 p64 && ./p64')
+    except:
+        exit('can‘t import a script module .')
+else:
+    print("32-bit architecture detected")
+    try:
+        or_ = os.system('./p32')
+        if or_ == 100:
+            pass
+        else:
+            os.system('chmod 777 p32 && ./p32')
+    except:
+        exit('can‘t import a script module .')
